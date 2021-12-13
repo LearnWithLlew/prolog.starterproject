@@ -13,6 +13,6 @@ pending :-
         hello_world('Hello Fred!').
 
     test(empty_board) :-
-        count_neighbors(empty_board, 0).
+        count_neighbors(empty_board, 1).
 
 :- end_tests(hello_world).
