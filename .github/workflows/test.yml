@@ -9,13 +9,12 @@ jobs:
     steps:
     - uses: actions/checkout@main
 
-    - name: Cache Prolog
-      uses: actions/cache@v2
-      id: cache-prolog
-      with:
-        path: "~/prolog"
-        key: cache-pl-packages
-
+    - name: Prolog download
+      run: | 
+            sudo apt-add-repository ppa:swi-prolog/devel -y
+            sudo apt-get update -q
+            sudo apt-get install swi-prolog-nox
+    
     - name: test
       run: |
        swipl -f hello_world.pl -s hello_world_tests.plt -g run_tests,halt -t 'halt(1)'
