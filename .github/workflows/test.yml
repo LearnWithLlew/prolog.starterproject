@@ -17,4 +17,4 @@ jobs:
     
     - name: test
       run: |
-       swipl -f hello_world.pl -s hello_world_tests.plt -g run_tests,halt -t 'halt(1)'
+        sh -c "$(cat run_tests.bat)"
