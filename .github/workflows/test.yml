@@ -9,16 +9,12 @@ jobs:
     steps:
     - uses: actions/checkout@main
 
-    - uses: leafo/gh-actions-lua@v8.0.0
+    - name: Install Trealla ProLog
+      uses: logtalk-actions/setup-trealla-prolog@master
       with:
-        luaVersion: "5.1.5"
-
-    - uses: leafo/gh-actions-luarocks@v4.0.0
-
-    - name: build
-      run: |
-        luarocks install busted
+        trealla-prolog-branch: devel
+        trealla-prolog-version: latest
 
     - name: test
       run: |
-        busted -o utfTerminal
+       cat run_tests.bat | xargs
